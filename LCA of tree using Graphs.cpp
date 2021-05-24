@@ -1,12 +1,7 @@
+METHOD 1: O(N) time ,O(N) space
+
 #include <bits/stdc++.h>
 using namespace std;
-
-template<typename T>
-string itos(T i){
-	stringstream s;
-	s<<i;
-	return s.str();
-}
 
 #define N 10001
 
@@ -72,15 +67,3 @@ int main()
 	cout<<lca(a,b);
 	return 0;
 }
-/*
-7 6
-1 2
-1 3
-2 4
-2 5
-3 6
-6 7
-
-7 3
-*/
-
