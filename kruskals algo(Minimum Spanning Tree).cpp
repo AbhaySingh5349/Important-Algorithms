@@ -1,13 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-template<typename T>
-string itos(T i){
-	stringstream s;
-	s<<i;
-	return s.str();
-}
-
 #define N 1000001
 
 struct Edge{
