@@ -68,7 +68,7 @@ int main()
 	return 0;
 }
 
-METHOD 2: O(log(N)) time ,O(Nlog(N)) space
+METHOD 2: O(log(N)) time ,O(Nlog(N)) space (Binary Lifting)
 
 #include <bits/stdc++.h>
 using namespace std;
