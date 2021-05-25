@@ -16,6 +16,7 @@ bool compare(Edge e1, Edge e2){
 }
 
 int find(int n){
+	// path compression
 	if(parent[n]<0){
 		return n;
 	}else{
@@ -24,6 +25,7 @@ int find(int n){
 }
 
 void merge(int pu, int pv){
+	// union by rank
 	if(rank[pu]>rank[pv]){
 		parent[pv]=pu;
 		rank[pu]+=rank[pv];
@@ -64,4 +66,3 @@ int main()
 	cout<<sum;
 	return 0;
 }
-
