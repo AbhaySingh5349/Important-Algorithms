@@ -76,7 +76,7 @@ using namespace std;
 #define N 1001
 
 vector<int> graph[N];
-const int maxN=10;
+const int maxN=10; // pow(2,10) = 1024
 int level[N], dp[N][maxN+1];
 
 void dfs(int src, int parent, int l){
@@ -119,7 +119,7 @@ int lca(int a, int b){
 		return a;
 	}
 /*	while(dp[a][0]!=dp[b][0]){
-		a=dp[a][0];
+		a=dp[a][0]; // this takes only 1 jump, therefore we have to modify solution to get jumps as power of 2
 		b=dp[b][0];
 	} */
 	for(int j=maxN;j>=0;j--){
