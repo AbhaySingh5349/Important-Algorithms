@@ -1,13 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-template<typename T>
-string itos(T i){
-	stringstream s;
-	s<<i;
-	return s.str();
-}
-
 #define N 1000001
 
 vector<pair<int,int> > graph[N];
@@ -57,28 +50,3 @@ int main()
 	}
 	return 0;
 }
-/*
-6 9
-1 2 4
-1 6 2
-2 6 1
-2 3 5
-6 3 8
-6 5 10
-5 3 3
-5 4 5
-3 4 6
-1
-*/
-/*
-7 6
-1 2
-1 3
-2 4
-2 5
-3 6
-6 7
-
-4 6
-*/
-
