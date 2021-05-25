@@ -67,3 +67,84 @@ int main()
 	cout<<lca(a,b);
 	return 0;
 }
+
+METHOD 2: O(log(N)) time ,O(Nlog(N)) space
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define N 1001
+
+vector<int> graph[N];
+const int maxN=10;
+int level[N], dp[N][maxN+1];
+
+void dfs(int src, int parent, int l){
+	dp[src][0]=parent;
+	level[src]=l;
+	for(int i=0;i<graph[src].size();i++){
+		int child=graph[src][i];
+		if(child!=parent){
+			dfs(child,src,l+1);
+		}
+	}
+}
+
+void initialize(){
+	int i,j;
+	memset(dp,-1,sizeof(dp));
+	dfs(1,-1,0);
+	
+	for(j=1;j<=maxN;j++){
+		for(i=1;i<=N;i++){
+			if(dp[i][j-1]!=-1){
+				int parent=dp[i][j-1];
+				dp[i][j]=dp[parent][j-1];
+			}
+		}
+	}
+}
+
+int lca(int a, int b){
+	if(level[a]>level[b]){
+		swap(a,b);
+	}
+	int d=level[b]-level[a];
+	while(d>0){
+		int jumps=log2(d);
+		b=dp[b][jumps];
+		d-=(1<<jumps);
+	}
+	if(a==b){
+		return a;
+	}
+/*	while(dp[a][0]!=dp[b][0]){
+		a=dp[a][0];
+		b=dp[b][0];
+	} */
+	for(int j=maxN;j>=0;j--){
+		if(dp[a][j]!=-1 && (dp[a][j]!=dp[b][j])){
+			a=dp[a][j];
+			b=dp[b][j];
+		}
+	} 
+	return dp[a][0];
+}
+
+int main()
+{	
+	int vertices, edges;
+	cin>>vertices>>edges;
+	int i,j;
+	for(i=0;i<edges;i++){
+		int u,v;
+		cin>>u>>v;
+		graph[u].push_back(v);
+		graph[v].push_back(u);
+	}
+	initialize();
+	int a,b;
+	cin>>a>>b;
+	cout<<lca(a,b);
+	return 0;
+}
