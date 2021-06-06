@@ -1,13 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-template<typename T>
-string itos(T i){
-	stringstream s;
-	s<<i;
-	return s.str();
-}  
-
 long long int fib(int n){
 	long long int ans[2][2]={{1,0},{0,1}};
 	long long int base[2][2]={{1,1},{1,0}};
