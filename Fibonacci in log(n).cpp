@@ -34,7 +34,7 @@ int fib(int n){
 			n--;
 		}
 	}
-	return (ans[0][0])%mod;
+	return ans[0][0];
 }
     
 int main()
