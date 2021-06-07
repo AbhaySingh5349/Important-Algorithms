@@ -3,7 +3,7 @@ using namespace std;
 
 #define mod 1000000007
 
-int fib(int n){
+int fib(int n){ // 1 <= n <= 10e9
 	long long int ans[2][2]={{1,0},{0,1}};
 	long long int base[2][2]={{1,1},{1,0}};
 	n-=1;
