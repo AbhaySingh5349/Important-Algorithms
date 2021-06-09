@@ -1,13 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-template<typename T>
-string itos(T i){
-	stringstream s;
-	s<<i;
-	return s.str();
-}
-
 long long int power(long long int a, long long int b, int mod){
     long long int ans=1;
     while(b){
