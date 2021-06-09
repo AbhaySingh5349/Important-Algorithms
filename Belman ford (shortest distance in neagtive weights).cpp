@@ -28,7 +28,6 @@ void getDistance(int src, int vertices, int edges){
 				if(dist[v]>dist[u]+w){
 					dist[v]=dist[u]+w;
 					flag=true;
-				//	parent[v]=u;
 				}
 			}
 		}
