@@ -33,7 +33,6 @@ void merge(int pu, int pv){
 		parent[pu]=pv;
 		rank[pv]+=rank[pu];
 	}
-//	parent[pu]=pv;
 }
 
 int main()
