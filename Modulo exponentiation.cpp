@@ -19,7 +19,7 @@ int main()
 {
 	int x,n,mod;
 	if(x==0) return 0;
-    cout<<power(x,n,d);
+    	cout<<power(x,n,d);
     
 	return 0;
 }
