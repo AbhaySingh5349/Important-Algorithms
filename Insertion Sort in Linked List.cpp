@@ -50,4 +50,3 @@ ListNode* Solution::insertionSortList(ListNode* h){
     
     return newHead;
 }
-
