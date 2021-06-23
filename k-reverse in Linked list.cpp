@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 /**
  * Definition for singly-linked list.
  * struct ListNode {
