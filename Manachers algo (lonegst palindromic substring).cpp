@@ -56,5 +56,4 @@ int main()
             if((isalpha(temp[i]) || isdigit(temp[i]))) ans+=temp[i];
         }
         return ans;
-	return 0;
 }
