@@ -12,6 +12,7 @@ int main()
         int n=temp.length();
         vector<int> lps(n,0);
         int maxlen=0;
+	
     /*    for(int i=1;i<n-1;i++){
             while(temp[i+lps[i]+1]==temp[i-lps[i]-1]) lps[i]++;
             maxlen=max(maxlen,lps[i]);
