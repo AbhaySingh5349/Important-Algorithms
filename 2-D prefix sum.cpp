@@ -4,7 +4,6 @@ using namespace std;
 int main()
 {
 	int mat[n][m];
-	
 	int pre[n][m];
 	memset(pre,0,sizeof(pre));
         
