@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Approach 1: using DFS
+
 void toposort(vector<int> graph[], stack<int> &st,int src, bool visited[]){
 	visited[src]=true;
 	for(int i=0;i<graph[src].size();i++){
@@ -39,3 +41,5 @@ vector<int> topologicalSort(vector<int> jobs, vector<vector<int>> deps) {
 	}
   return v;
 }
+
+// Approach 2: using BFS 
