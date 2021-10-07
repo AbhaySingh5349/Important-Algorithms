@@ -1,45 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define N 100001
-
-vector<int> graph[N];
-bool visited[N];
-
-void topoSort(int src, stack<int> &st){
+void toposort(vector<int> graph[], stack<int> &st,int src, bool visited[]){
 	visited[src]=true;
 	for(int i=0;i<graph[src].size();i++){
 		int child=graph[src][i];
 		if(visited[child]==false){
-			topoSort(child,st);
+			toposort(graph,st,child,visited);
 		}
 	}
 	st.push(src);
 }
 
-int main()
-{	
-	int vertices, edges;
-	cin>>vertices>>edges;
-	int i,j;
-	for(i=0;i<edges;i++){
-		int u,v;
-		cin>>u>>v;
+vector<int> topologicalSort(vector<int> jobs, vector<vector<int>> deps) {
+  int n=jobs.size();
+	int maxe=*max_element(jobs.begin(),jobs.end());
+	vector<int> graph[maxe+1];
+	for(int i=0;i<deps.size();i++){
+		int u=deps[i][0], v=deps[i][1];
 		graph[u].push_back(v);
 	}
+	stack<int> st;
 	
-	stack<int> st;	
-	memset(visited,false,N);
-	for(i=1;i<=vertices;i++){
-		if(visited[i]==false){
-			topoSort(i,st);
+	bool visited[maxe+1];
+	memset(visited,false,sizeof(visited));
+	
+	for(int i=0;i<n;i++){
+		if(visited[jobs[i]]==false){
+			toposort(graph,st,jobs[i],visited);
 		}
-	}
+	} 
+	vector<int> v;
+	if(st.size()!=n) return v;
 	
 	while(st.size()>0){
-		int x=st.top();
+		v.push_back(st.top());
 		st.pop();
-		cout<<x<<" ";
 	}
-	return 0;
+  return v;
 }
