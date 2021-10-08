@@ -2,6 +2,8 @@
 using namespace std;
 
 // Question: given jobs from [1,n] and dependency vector with 1st job is pre-requisite of 2nd (i.e 2nd job is dependent on 1st)
+// jobs:[1,2,3,4], deps:[[1,2],[1,3],[3,2],[4,2],[4,3]]
+// o/p: [1,4,3,2] or [4,1,3,2]
 
 // Approach 1: using DFS
 
