@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Question: given jobs from [1,n] and dependency vector with 1st job is pre-requisite of 2nd (i.e 2nd job is dependent on 1st)
+
 // Approach 1: using DFS
 
 void toposort(vector<int> graph[], stack<int> &st,int src, bool visited[]){
