@@ -19,7 +19,7 @@ bool matches(map<char,int> sm, map<char,int> pm, string s, string p, int idx){
 
 bool RabinKarpAlgorithm(string s, string p) {
 	int n=s.length(), m=p.length();
-  map<char,int> sm, pm;
+  	map<char,int> sm, pm;
 	int i=0;
 	while(i<m){
 		char ch1=s[i], ch2=p[i];
