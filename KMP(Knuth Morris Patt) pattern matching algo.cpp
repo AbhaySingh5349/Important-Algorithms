@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Question 1: Check if pattern exisit in string or not
+// Question 1: Check if pattern exist in string or not
 
 void buildTable(string p, vector<int> &table){
 	int m=p.length();
@@ -71,4 +71,20 @@ int countFrequency(string s, string p, vector<int> table){
     		}
     	}
 	return ans;
+}
+
+// Question 3: Find smallest pattern which is prefix as well as sufix
+
+string smallestPattern(string s) {
+  	int n=s.length();
+  	vector<int> table(n,-1); // previous idx where we found the matching substring till (j-i) as end of prefix
+  	buildTable(s,table);
+  	int idx=table[n-1];
+    	if(idx==-1) return "";
+    	
+    	while(table[idx]!=-1) idx=table[idx];
+    	
+    	string p=s.substr(0,idx+1);
+	
+	return p;
 }
