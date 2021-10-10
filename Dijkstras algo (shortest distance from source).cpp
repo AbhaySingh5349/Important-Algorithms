@@ -1,52 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define N 1000001
-
-vector<pair<int,int> > graph[N];
-int dist[N];
-
-void getDistance(int src){
-	int i;
-	for(i=0;i<N;i++){
-		dist[i]=INT_MAX;
+vector<int> dijkstrasAlgorithm(int start, vector<vector<vector<int>>> edges) {
+	int n=edges.size();
+  	vector<pair<int,int>> graph[n];
+	for(int i=0;i<n;i++){
+		vector<vector<int>> adj=edges[i];
+		for(int j=0;j<adj.size();j++){
+			int v=adj[j][0], wt=adj[j][1];
+			graph[i].push_back({v,wt});
+		}
 	}
-	priority_queue<pair<int,int>,vector<pair<int,int> >,greater<pair<int,int> > > pq;
-	pq.push({0,src});
-	dist[src]=0;
+	vector<int> dist(n,INT_MAX);
+	priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq; 
+	pq.push({0,start});
+	dist[start]=0;
 	while(pq.size()>0){
-		pair<int,int> f=pq.top();
+		pair<int,int> p=pq.top();
 		pq.pop();
-		int u=f.second;
-		int d=f.first;
+		int d=p.first;
+		int u=p.second;
 		
 		for(int i=0;i<graph[u].size();i++){
 			int v=graph[u][i].first;
-			int w=graph[u][i].second;
-			if(dist[v]>dist[u]+w){
-				dist[v]=dist[u]+w;
+			int wt=graph[u][i].second;
+			
+			if(dist[v]>d+wt){
+				dist[v]=d+wt;
 				pq.push({dist[v],v});
 			}
 		}
 	}
-}
-
-int main()
-{	
-	int vertices, edges;
-	cin>>vertices>>edges;
-	int i,j;
-	for(i=0;i<edges;i++){
-		int u,v,w;
-		cin>>u>>v>>w;
-		graph[u].push_back({v,w});
-		graph[v].push_back({u,w});
-	}
-	int src;
-	cin>>src;
-	getDistance(src);
-	for(i=1;i<=vertices;i++){
-		cout<<i<<" : "<<dist[i]<<"\n";
-	}
-	return 0;
+	for(int i=0;i<n;i++) if(dist[i]==INT_MAX) dist[i]=-1;
+  return dist;
 }
