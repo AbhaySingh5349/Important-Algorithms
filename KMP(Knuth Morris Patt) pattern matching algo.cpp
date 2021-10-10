@@ -42,10 +42,10 @@ bool findpattern(string s, string p, vector<int> table){
 }
 
 bool knuthMorrisPrattAlgorithm(string s, string p) {
-  int n=s.length(), m=p.length();
+  	int n=s.length(), m=p.length();
 	vector<int> table(m,-1); // previous idx where we found the matching substring till (j-i) as end of prefix
 	buildTable(p,table);
-  return findpattern(s,p,table);
+  	return findpattern(s,p,table);
 }
 
 // Question 2: Count frequency of pattern in string
