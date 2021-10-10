@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Question 1: Check if pattern exisit in string or not
+
 void buildTable(string p, vector<int> &table){
 	int m=p.length();
 	int j=0, i=1; // pointing at pattern
@@ -46,3 +48,27 @@ bool knuthMorrisPrattAlgorithm(string s, string p) {
   return findpattern(s,p,table);
 }
 
+// Question 2: Count frequency of pattern in string
+
+int countFrequency(string s, string p, vector<int> table){
+    	int n=s.length(), m=p.length();
+    	int i=0, j=0;
+    	int ans=0;
+    	while(i+m-j<=n){
+    		if(s[i]==p[j]){
+    			if(j==m-1){
+    			    ans++;
+    			    j=-1; // once we matched the pattern, we can start matching from 0th charcter of pattern
+    			}
+    			i++, j++;
+    		}else{
+    			if(j>0){
+    				j=table[j-1];
+    				j++;
+    			}else{
+    				i++;
+    			}
+    		}
+    	}
+	return ans;
+}
